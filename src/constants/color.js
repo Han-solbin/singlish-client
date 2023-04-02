@@ -1,0 +1,14 @@
+export const COLOR = {
+  BRAND_COLOR: "#FEE500",
+
+  BACKGROUND: "#2E2E36",
+
+  GRAY100: "#BCC4DB",
+  GRAY300: "#8A93AB",
+  GRAY500: "#676C7D",
+  GRAY700: "#454A55",
+  GRAY900: "#2E2F36",
+
+  WHITE: "FFFFFF",
+  BLACK: "000000",
+};
