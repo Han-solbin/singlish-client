@@ -1,0 +1,15 @@
+export const PATH = {
+  MAIN: "/",
+  WELCOME: "/welcome",
+  WELCOMETERM: "/welcome/term",
+  WELCOMETERMDETAIL: "/welcome/term/detail",
+  COURSES: "/courses",
+  COURSESDETAIL: "/courses/detail",
+  COURSESSUCCESS: "/courses/success",
+  SEARCH: "/search",
+  PRACTICE: "/practice",
+  PRACTICEDETAIL: "/practice/detail",
+  PRACTICESUCCESS: "/practice/success",
+  CHATBOTSINGLY: "/chatbot/singly",
+  ACCOUNT: "/account",
+};

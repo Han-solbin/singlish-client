@@ -1,0 +1,13 @@
+export { default as MainPage } from "./MainPage";
+export { default as WelcomePage } from "./WelcomePage";
+export { default as WelcomeTermPage } from "./WelcomeTermPage";
+export { default as WelcomeTermDetailPage } from "./WelcomeTermDetailPage";
+export { default as CoursesPage } from "./CoursesPage";
+export { default as CoursesDetailPage } from "./CoursesDetailPage";
+export { default as CoursesSuccessPage } from "./CoursesSuccessPage";
+export { default as SearchPage } from "./SearchPage";
+export { default as PracticePage } from "./PracticePage";
+export { default as PracticeDetailPage } from "./PracticeDetailPage";
+export { default as PracticeSuccessPage } from "./PracticeSuccessPage";
+export { default as ChatbotSinglyPage } from "./ChatbotSinglyPage";
+export { default as AccountPage } from "./AccountPage";
