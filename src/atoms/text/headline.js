@@ -1,6 +1,7 @@
+import React from "react";
 import styled from "styled-components";
 
-import { TEXT } from "../constants";
+import { TEXT } from "../../constants";
 
 const Headline = ({ color, margin, children }) => {
   return (
