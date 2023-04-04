@@ -1,0 +1,12 @@
+export { default as Plusicon } from "./plusicon";
+export { default as Microphoneicon } from "./microphoneicon";
+export { default as Frontarrowicon } from "./frontarrowicon";
+export { default as Previouspageicon } from "./previouspageicon";
+export { default as Soundwaveicon } from "./soundwaveicon";
+export { default as Searchicon } from "./searchicon";
+export { default as Checkicon } from "./checkicon";
+export { default as Settingicon } from "./settingicon";
+export { default as Accounticon } from "./accounticon";
+export { default as Flagicon } from "./flagicon";
+export { default as Practiceicon } from "./practiceicon";
+export { default as Textbubbleicon } from "./textbubbleicon";
