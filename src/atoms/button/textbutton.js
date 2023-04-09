@@ -2,15 +2,16 @@ import React from "react";
 import styled from "styled-components";
 
 import { COLOR } from "../../constants";
+import { Body1 } from "../text";
 
 const Textbutton = ({
-  children = null,
-  backgroundColor = COLOR.BRAND_COLOR,
+  text = "아니",
+  backgroundColor = COLOR.BRANDCOLOR,
   width = "100%",
   height = "3.25rem",
   margin = "1rem 0 0.5rem 0",
   isDisabled = false,
-  onClick: handleClick = () => {},
+  onClick,
 }) => {
   return (
     <Container
@@ -19,13 +20,12 @@ const Textbutton = ({
       width={width}
       margin={margin}
       disabled={isDisabled}
-      onClick={handleClick}
+      onClick={onClick}
     >
-      {children}
+      <Body1>{text}</Body1>
     </Container>
   );
 };
-
 export default Textbutton;
 
 const Container = styled.button`
