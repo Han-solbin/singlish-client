@@ -1,20 +1,10 @@
 {
-  "rules": {
-    // suppress errors for missing 'import React' in files
-    "react/react-in-jsx-scope": "off",
-    // allow jsx syntax in js files (for next.js project)
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }], //should add ".ts" if typescript project
-    "indent": ["error", "tab"],
-    "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "double"],
-    "semi": ["error", "never"]
-  },
   "env": {
     "browser": true,
     "commonjs": true,
     "es6": true
   },
-  "extends": "eslint:recommended",
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -22,5 +12,8 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["react"]
+  "plugins": ["react"],
+  "rules": {
+    "linebreak-style": ["error", "unix"]
+  }
 }
