@@ -10,8 +10,8 @@ const Checkicon = ({
     width={size}
     height={size}
     viewBox="0 0 24 24"
-    fill={isChecked ? checkedColor : (COLOR.G = WHITE)}
-    stroke={color}
+    fill={isChecked ? checkedColor : COLOR.WHITE}
+    stroke={COLOR.WHITE}
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
