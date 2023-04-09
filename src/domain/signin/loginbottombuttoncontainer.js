@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { COLOR } from "../../constants";
 import { Appleloginbutton, Kakaologinbutton } from ".";
 
-const Loginbottombuttoncontainer = ({ Children, onclick }) => {
+const Loginbottombuttoncontainer = () => {
   return (
     <Container>
       <Kakaologinbutton></Kakaologinbutton>

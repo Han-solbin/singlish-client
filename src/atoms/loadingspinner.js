@@ -1,12 +1,11 @@
 import React from "react";
 import { COLOR } from "../constants";
-const Loadingspinner = ({ size = 24, color = COLOR.GRAY100 }) => (
+const Loadingspinner = ({ size = 24 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    x="0px"
-    y="0px"
+    x={size}
+    y={size}
     viewBox="0 0 100 100"
-    enable-background="new 0 0 0 0"
   >
     <path
       fill={COLOR.WHITE}
