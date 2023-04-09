@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Singlishlogo } from "../../resources/image";
-import { COLOR } from "../../constants";
 
-const Singlishhorizontallogo = ({}) => {
+const Singlishhorizontallogo = () => {
   return (
     <Container>
       <Singlishlogo></Singlishlogo>

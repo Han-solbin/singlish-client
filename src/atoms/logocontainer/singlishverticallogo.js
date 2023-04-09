@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Singlishlogo } from "../../resources/image";
-import { COLOR } from "../../constants";
 
-const Singlishverticallogo = ({}) => {
+const Singlishverticallogo = () => {
   return (
     <Container>
       <Singlishlogo></Singlishlogo>
@@ -18,9 +17,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   aligh-items: center;
-
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
 `;
 
 const Text = styled.text`
@@ -28,4 +24,5 @@ const Text = styled.text`
   font-size: 1.75rem;
   letter-spacing: -0.05rem;
   font-weight: 800;
+  left-margin: 0.5rem;
 `;
