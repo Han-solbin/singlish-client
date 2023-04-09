@@ -10,3 +10,4 @@ export { default as Accounticon } from "./accounticon";
 export { default as Flagicon } from "./flagicon";
 export { default as Practiceicon } from "./practiceicon";
 export { default as Textbubbleicon } from "./textbubbleicon";
+export { default as Monitoricon } from "./monitoricon";
