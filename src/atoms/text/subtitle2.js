@@ -16,10 +16,9 @@ export default Subtitle2;
 const Text = styled.p`
   color: ${(props) => props.color};
   margin: ${(props) => props.margin};
-  font-family: ${TEXT.SPECIALTITLE2.FONTFAMILY};
-  font-weight: ${TEXT.SPECIALTITLE2.WEIGTHT};
-  font-size: ${TEXT.SPECIALTITLE2.SIZE};
-  line-height: ${TEXT.SPECIALTITLE2.HEIGHT};
-  letter-spacing: ${TEXT.SPECIALTITLE2.LETTER_SPACING};
   font-family: ${TEXT.SUBTITLE2.FONTFAMILY};
+  font-weight: ${TEXT.SUBTITLE2.WEIGTHT};
+  font-size: ${TEXT.SUBTITLE2.SIZE};
+  line-height: ${TEXT.SUBTITLE2.HEIGHT};
+  letter-spacing: ${TEXT.SUBTITLE2.LETTER_SPACING};
 `;
