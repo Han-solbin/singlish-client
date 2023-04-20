@@ -1,14 +1,14 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+//import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
-import { Title1 } from "../atoms/text";
+import { Navigationheader } from "../molecules/navigation";
 
 const CoursesDetailPage = () => {
-  const { courseId } = useParams();
+  //const { courseId } = useParams();
   return (
     <Container>
-      <Title1>CoursesDetailPage{courseId}</Title1>
+      <Navigationheader>클래스 소개</Navigationheader>
     </Container>
   );
 };

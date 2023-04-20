@@ -34,7 +34,7 @@ function App() {
           path={`${PATH.WELCOMETERMDETAIL}/:termId`}
           element={<WelcomeTermDetailPage />}
         />
-        <Route path={`${PATH.COURSES}`} element={<CoursesPage />} />
+        <Route path={`${PATH.COURSES}/:categoryId`} element={<CoursesPage />} />
         <Route
           path={`${PATH.COURSESDETAIL}/:courseId`}
           element={<CoursesDetailPage />}
@@ -50,7 +50,7 @@ function App() {
           element={<PracticeDetailPage />}
         />
         <Route
-          path={`${PATH.PRACTICESUCCESS}/:courseId`}
+          path={`${PATH.PRACTICESUCCESS}`}
           element={<PracticeSuccessPage />}
         />
         <Route path={`${PATH.CHATBOTSINGLY}`} element={<ChatbotSinglyPage />} />

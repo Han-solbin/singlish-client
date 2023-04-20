@@ -21,4 +21,5 @@ const Text = styled.p`
   font-size: ${TEXT.SPECIALTITLE2.SIZE};
   line-height: ${TEXT.SPECIALTITLE2.HEIGHT};
   letter-spacing: ${TEXT.SPECIALTITLE2.LETTER_SPACING};
+  font-family: ${TEXT.SUBTITLE2.FONTFAMILY};
 `;
