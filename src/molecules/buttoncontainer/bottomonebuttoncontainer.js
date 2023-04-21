@@ -16,7 +16,6 @@ export default Bottomonebuttoncontainer;
 
 const Container = styled.div`
   position: fixed;
-  width: auto;
   padding: 1rem 1rem 2.25rem;
   display: flex;
   flex-direction: column;
