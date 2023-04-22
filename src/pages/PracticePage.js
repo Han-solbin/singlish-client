@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Title1 } from "../atoms/text";
+import { Bottomnavigation } from "../molecules/navigation";
 
 const PracticePage = () => {
   return (
     <Container>
-      <Title1>PracticePage</Title1>
+      <Bottomnavigation></Bottomnavigation>
     </Container>
   );
 };
