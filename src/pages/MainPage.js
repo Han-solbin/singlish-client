@@ -1,17 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-import { Title1 } from "../atoms/text";
+import { PATH } from "../constants";
+import { Singlishhorizontallogo } from "../atoms/logocontainer";
 
 const MainPage = () => {
+  const navigate = useNavigate();
+  const timeout = () => {
+    setTimeout(() => {
+      navigate(PATH.WELCOME);
+    }, 2000);
+  };
+  useEffect(() => {
+    timeout();
+    return () => {
+      clearTimeout(timeout);
+    };
+  });
   return (
     <Container>
-      <Title1>MainPage</Title1>
+      <Singlishhorizontallogo></Singlishhorizontallogo>
     </Container>
   );
 };
 export default MainPage;
 
 const Container = styled.div`
-  width: 100%;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
 `;

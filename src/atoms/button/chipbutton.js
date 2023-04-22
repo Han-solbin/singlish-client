@@ -4,40 +4,21 @@ import styled from "styled-components";
 import { COLOR } from "../../constants";
 import { Body2 } from "../text";
 
-const Chipbutton = ({
-  children,
-  margin = "0.25rem 0.125rem",
-  backgroundColor = COLOR.GRAY500,
-  onClick: handleClick = () => {},
-}) => {
+const Chipbutton = ({ children1 }) => {
   return (
-    <Chipbuttoncontainer>
-      <Container
-        backgroundColor={backgroundColor}
-        margin={margin}
-        onClick={handleClick}
-      >
-        <Body2>{children}</Body2>
-      </Container>
-    </Chipbuttoncontainer>
+    <ChipContainer>
+      <Body2 color={COLOR.WHITE} margin={"0"}>
+        {children1}
+      </Body2>
+    </ChipContainer>
   );
 };
 
 export default Chipbutton;
 
-const Container = styled.div`
-  padding: 0 10px;
-  height: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: ${(props) => props.margin};
-  background-color: ${(props) => props.backgroundColor};
-  border-radius: "1.25rem";
-`;
-
-const Chipbuttoncontainer = styled.div`
+const ChipContainer = styled.div`
   display: inline-block;
-  width: auto;
-  border-radius: "1.25rem";
+  border-radius: 3rem;
+  padding: 4px 12px;
+  background-color: #454a55;
 `;
