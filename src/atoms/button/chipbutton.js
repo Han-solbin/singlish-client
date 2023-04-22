@@ -22,13 +22,3 @@ const ChipContainer = styled.div`
   padding: 4px 12px;
   background-color: #454a55;
 `;
-/**
- * <Container
-        backgroundColor={backgroundColor}
-        margin={margin}
-        onClick={handleClick}
-      >
-
-      margin = "0.25rem 0.125rem",
-  backgroundColor = COLOR.GRAY500,
- */
