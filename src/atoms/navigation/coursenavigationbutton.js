@@ -9,7 +9,8 @@ const Coursenavigationbutton = ({
   isCurrent = false,
   onClick: handelsCoursepage,
 }) => {
-  const Activatedcolor = isCurrent === GNB.MYPAGE ? COLOR.WHITE : COLOR.GRAY500;
+  const Activatedcolor =
+    isCurrent === GNB.COURSES ? COLOR.WHITE : COLOR.GRAY500;
 
   return (
     <Container onClick={handelsCoursepage}>
