@@ -20,5 +20,7 @@ const ChipContainer = styled.div`
   display: inline-block;
   border-radius: 3rem;
   padding: 4px 12px;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
   background-color: #454a55;
 `;
