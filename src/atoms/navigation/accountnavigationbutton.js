@@ -6,9 +6,10 @@ import { Caption2 } from "../text";
 
 const Accountnavigationbutton = ({
   isCurrent = false,
-  onclick: handleAccountpage,
+  onClick: handleAccountpage,
 }) => {
-  const Activatedcolor = isCurrent === GNB.MYPAGE ? COLOR.WHITE : COLOR.GRAY500;
+  const Activatedcolor =
+    isCurrent === GNB.ACCOUNT ? COLOR.WHITE : COLOR.GRAY500;
   return (
     <Container onClick={handleAccountpage}>
       <Accounticon color={Activatedcolor}></Accounticon>

@@ -9,7 +9,8 @@ const Pracicenavigationbutton = ({
   isCurrent = false,
   onClick: handlePracticepage,
 }) => {
-  const Activatedcolor = isCurrent === GNB.MYPAGE ? COLOR.WHITE : COLOR.GRAY500;
+  const Activatedcolor =
+    isCurrent === GNB.PRACTICE ? COLOR.WHITE : COLOR.GRAY500;
 
   return (
     <Container onClick={handlePracticepage}>
