@@ -1,5 +1,5 @@
 export const GNB = {
-  COURSES: "courses",
+  COURSES: "courses/basic",
   PRACTICE: "practice",
   CHATBOTSINGLY: "chatbot/singly",
   ACCOUNT: "account",
