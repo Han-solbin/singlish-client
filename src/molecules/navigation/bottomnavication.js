@@ -28,7 +28,7 @@ const Bottomnavigation = () => {
 
   const handleCoursepage = () => {
     setIsCurrent(GNB.COURSES);
-    navigate(PATH.COURSES);
+    navigate(PATH.COURSES + "/basic");
   };
 
   const handlePracticepage = () => {
