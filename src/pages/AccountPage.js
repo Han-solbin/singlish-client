@@ -1,15 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Title1 } from "../atoms/text";
+import { Title2 } from "../atoms/text";
+import { COLOR } from "../constants";
+import { Accountheader } from "../organisms/header";
 import { Dialog } from "../molecules/dialog";
-import { Chipbutton } from "../atoms/button";
+import { Bottomnavigation } from "../molecules/navigation";
+import { Memberprofile } from "../domain/member";
 
 const AccountPage = () => {
   return (
     <>
       <Container>
-        <Title1>AccountPage</Title1>
+        <Accountheader></Accountheader>
+        <Memberprofile></Memberprofile>
+        <Title2 color={COLOR.WHITE} margin={"1rem"}>
+          수강중인 코스
+        </Title2>
         <DialogContainer>
           <Dialog
             children1={"진행상황이 초기화되어요"}
@@ -17,7 +24,7 @@ const AccountPage = () => {
           ></Dialog>
         </DialogContainer>
       </Container>
-      <Chipbutton children1={"aaid"}></Chipbutton>
+      <Bottomnavigation></Bottomnavigation>
     </>
   );
 };
