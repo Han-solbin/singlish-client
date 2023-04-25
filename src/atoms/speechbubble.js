@@ -4,6 +4,11 @@ import { Body3 } from "./text";
 import { COLOR } from "../constants";
 
 const Speechbubble = ({ message, isMe }) => {
+  /**
+   *지금으로서는 previousSender가 제대로 렌더링 되지 않는 문제가 있는데,
+   정적 렌더링을 사용해서인거라고 생각하고있습니다!(ㅎㅎㅜㅜ)
+   */
+  
   const [previousSender, setPreviousSender] = useState(null);
   const hasPreviousMessageFromSameSender = previousSender === isMe;
   useEffect(() => {

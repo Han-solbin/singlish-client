@@ -16,7 +16,7 @@ const Dialog = ({ children1, children2 }) => {
       <Body3 color={COLOR.GRAY300} margin={0}>
         {children2}
       </Body3>
-      <Textbutton chlidren={"확인"} width="100px"></Textbutton>
+      <Textbutton text={"확인"} width="100px"></Textbutton>
     </Container>
   );
 };
