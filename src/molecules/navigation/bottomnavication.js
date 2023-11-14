@@ -28,24 +28,28 @@ const Bottomnavigation = () => {
 
   const handleCoursepage = () => {
     setIsCurrent(GNB.COURSES);
-    navigate(PATH.COURSES + "/basic");
+    navigate(PATH.COURSES + "/0");
   };
 
   const handlePracticepage = () => {
     setIsCurrent(GNB.PRACTICE);
-    navigate(PATH.PRACTICE);
+    navigate(PATH.PRACTICE + "/0");
   };
 
   const handleChatbotpage = () => {
-    setIsCurrent(GNB.CHATBOTSINGLY);
-    navigate(PATH.CHATBOTSINGLY);
+    setIsCurrent(GNB.CHATBOT);
+    navigate(PATH.CHATBOT);
   };
 
   const handleAccountpage = () => {
     setIsCurrent(GNB.ACCOUNT);
-    navigate(PATH.ACCOUNT);
+    navigate(PATH.ACCOUNT + "/0");
   };
 
+  console.log(GNB.COURSES);
+  console.log(PATH.COURSES);
+  console.log(GNB.CHATBOT);
+  console.log(PATH.CHATBOT);
   return (
     <Container>
       <Rowlist>

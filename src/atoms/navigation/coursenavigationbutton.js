@@ -7,13 +7,15 @@ import { Caption2 } from "../text";
 
 const Coursenavigationbutton = ({
   isCurrent = false,
-  onClick: handelsCoursepage,
+  onClick: handelCoursepage,
 }) => {
   const Activatedcolor =
-    isCurrent === GNB.COURSES ? COLOR.WHITE : COLOR.GRAY500;
+    isCurrent === GNB.COURSES || isCurrent === "/courses/1"
+      ? COLOR.WHITE
+      : COLOR.GRAY500;
 
   return (
-    <Container onClick={handelsCoursepage}>
+    <Container onClick={handelCoursepage}>
       <Flagicon color={Activatedcolor}></Flagicon>
       <Caption2 color={Activatedcolor}>코스</Caption2>
     </Container>

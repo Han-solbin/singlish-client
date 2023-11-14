@@ -4,10 +4,10 @@ import styled from "styled-components";
 import { COLOR } from "../../constants";
 import { Textbutton } from "../../atoms/button";
 
-const Bottomonebuttoncontainer = ({ content }) => {
+const Bottomonebuttoncontainer = ({ content, onClick }) => {
   return (
     <Container>
-      <Textbutton text={content}></Textbutton>
+      <Textbutton text={content} onClick={onClick}></Textbutton>
     </Container>
   );
 };

@@ -1,9 +1,20 @@
 import React, { useState, useMemo } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router";
+import { PATH } from "../../constants";
 
-const Input = () => {
-  const [text, setText] = useState("");
-
+const Input = ({ keyword }) => {
+  const [text, setText] = useState(keyword);
+  const navigate = useNavigate();
+  const search = () => {
+    navigate(PATH.SEARCH + "/" + text);
+  };
+  const onKeydown = (e) => {
+    if (e.key == "Enter") {
+      search();
+      window.location.reload();
+    }
+  };
   const onChangeTextHandler = (e) => {
     setText(e.target.value);
   };
@@ -17,6 +28,7 @@ const Input = () => {
     <InputContainer
       value={showText}
       onChange={onChangeTextHandler}
+      onKeyDown={onKeydown}
     ></InputContainer>
   );
 };

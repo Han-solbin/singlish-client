@@ -2,6 +2,16 @@
   text-align: center;
 }
 
+body {
+  width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

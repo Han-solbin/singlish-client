@@ -20,8 +20,8 @@ export default Accountheader;
 const Container = styled.div`
   display: flex;
   height: 52px;
-  padding: 0rem 1rem 0rem 1rem;
   justify-content: space-between;
+  padding: 0rem 1rem 0rem 1rem;
   align-items: center;
   background-color: ${COLOR.BACKGROUND};
 `;

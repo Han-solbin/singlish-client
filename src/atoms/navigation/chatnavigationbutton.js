@@ -10,7 +10,7 @@ const Chatnavigationbutton = ({
   onClick: handleChatpage,
 }) => {
   const Activatedcolor =
-    isCurrent === GNB.CHATBOTSINGLY ? COLOR.WHITE : COLOR.GRAY500;
+    isCurrent === GNB.CHATBOT ? COLOR.WHITE : COLOR.GRAY500;
   return (
     <Container onClick={handleChatpage}>
       <Textbubbleicon color={Activatedcolor}></Textbubbleicon>

@@ -4,12 +4,15 @@ import styled from "styled-components";
 import { COLOR } from "../../constants";
 import { Singlishhorizontallogo } from "../../atoms/logocontainer";
 import { Searchicon } from "../../resources/icon";
+import { Iconbutton } from "../../atoms/button";
 
-const Coursesheader = () => {
+const Coursesheader = ({ startSearching }) => {
   return (
     <Container>
       <Singlishhorizontallogo></Singlishhorizontallogo>
-      <Searchicon color={COLOR.WHITE}></Searchicon>
+      <Iconbutton onClick={startSearching}>
+        <Searchicon color={COLOR.WHITE}></Searchicon>
+      </Iconbutton>
     </Container>
   );
 };

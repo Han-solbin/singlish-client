@@ -9,5 +9,6 @@ export { default as SearchPage } from "./SearchPage";
 export { default as PracticePage } from "./PracticePage";
 export { default as PracticeDetailPage } from "./PracticeDetailPage";
 export { default as PracticeSuccessPage } from "./PracticeSuccessPage";
-export { default as ChatbotSinglyPage } from "./ChatbotSinglyPage";
+export { default as ChatbotPage } from "./ChatbotPage";
+export { default as ChatbotDetailPage } from "./ChatbotDetailPage";
 export { default as AccountPage } from "./AccountPage";

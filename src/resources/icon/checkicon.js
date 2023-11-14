@@ -1,17 +1,13 @@
 import React from "react";
 import { COLOR } from "../../constants";
-const Checkicon = ({
-  size = 24,
-  isChecked = false,
-  checkedColor = COLOR.BRANDCOLOR,
-}) => (
+const Checkicon = ({ size = 24, isChecked }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}
     height={size}
     viewBox="0 0 24 24"
-    fill={isChecked ? checkedColor : COLOR.WHITE}
-    stroke={COLOR.WHITE}
+    fill={isChecked ? COLOR.GRAY700 : COLOR.BRANDCOLOR}
+    stroke={isChecked ? COLOR.WHITE : COLOR.GRAY700}
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"

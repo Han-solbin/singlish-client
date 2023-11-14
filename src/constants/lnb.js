@@ -1,5 +1,6 @@
 export const LNB = {
-  BASICCOURSES: "courses/basic",
-  COMMONCOURSES: "courses/common",
-  APPLICATIONCOURSES: "courses/application",
+  CATEGORY1: "courses/0",
+  CATEGORY2: "courses/1",
+  CATEGORY3: "courses/2",
+  CATEGORY4: "courses/3",
 };

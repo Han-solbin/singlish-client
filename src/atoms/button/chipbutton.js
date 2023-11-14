@@ -1,12 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
-import { COLOR } from "../../constants";
+import { useNavigate } from "react-router";
+import { COLOR, PATH } from "../../constants";
 import { Body2 } from "../text";
 
 const Chipbutton = ({ children1 }) => {
+  const navigate = useNavigate();
+  const search = () => {
+    navigate(PATH.SEARCH + "/" + children1);
+    window.location.reload();
+  };
   return (
-    <ChipContainer>
+    <ChipContainer onClick={search}>
       <Body2 color={COLOR.WHITE} margin={"0"}>
         {children1}
       </Body2>

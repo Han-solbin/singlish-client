@@ -1,6 +1,6 @@
 export const GNB = {
-  COURSES: "courses/basic",
+  COURSES: "courses",
   PRACTICE: "practice",
-  CHATBOTSINGLY: "chatbot/singly",
+  CHATBOT: "chatbot",
   ACCOUNT: "account",
 };

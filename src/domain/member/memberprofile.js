@@ -3,18 +3,18 @@ import styled from "styled-components";
 
 import { COLOR } from "../../constants";
 import { Body2, Body3 } from "../../atoms/text";
-import Profileimage from "../../resources/image/profileimage.jpeg";
 
-const Memberprofile = () => {
+const Memberprofile = ({ userName, email, imgUrl }) => {
+  console.log({ imgUrl });
   return (
     <ProfileContainer>
-      <ImageContainer src={Profileimage}></ImageContainer>
+      <ImageContainer src={imgUrl}></ImageContainer>
       <TextContainer>
         <Body2 margin={"0"} color={COLOR.GRAY100}>
-          솔빈
+          {userName}
         </Body2>
         <Body3 margin={"0"} color={COLOR.GRAY300}>
-          solbing@gmail.com
+          {email}
         </Body3>
       </TextContainer>
     </ProfileContainer>
@@ -36,7 +36,6 @@ const ProfileContainer = styled.div`
   justify-content: flex-start;
   align-items: start;
   padding: 2rem 2rem;
-  margin: 0rem 1rem;
   background-color: #454a55;
   border-radius: 1.25rem;
 `;

@@ -18,7 +18,7 @@ export default Onedepthpagemessage;
 
 const Container = styled.div`
   display: flex;
-  width: 100%;
+  width: auto;
   flex-direction: column;
   align-items: left;
   justify-content: flex-start;

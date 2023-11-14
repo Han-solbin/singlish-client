@@ -1,12 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
+import { PATH } from "../constants";
 import { Twodepthpagemessage } from "../molecules/onepagemessage";
 import { Bottomonebuttoncontainer } from "../molecules/buttoncontainer";
 import { Navigationheader } from "../molecules/navigation";
 import Checkmark from "../resources/image/checkmark.png";
 
 const CoursesSuccessPage = () => {
+  const navigate = useNavigate();
+  const fakeNavigate = () => {
+    navigate(`${PATH.COURSES}/0`);
+  };
   return (
     <>
       <Navigationheader>수강 신청</Navigationheader>
@@ -18,6 +24,7 @@ const CoursesSuccessPage = () => {
         <ImageContainer src={Checkmark}></ImageContainer>
         <Bottomonebuttoncontainer
           content={"지금 수강하러 가기"}
+          onClick={fakeNavigate}
         ></Bottomonebuttoncontainer>
       </Container>
     </>

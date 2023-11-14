@@ -17,7 +17,8 @@ import {
   PracticePage,
   PracticeDetailPage,
   PracticeSuccessPage,
-  ChatbotSinglyPage,
+  ChatbotPage,
+  ChatbotDetailPage,
   AccountPage,
 } from "./pages";
 
@@ -44,7 +45,7 @@ function App() {
           element={<CoursesSuccessPage />}
         />
         <Route path={`${PATH.SEARCH}/:keyword`} element={<SearchPage />} />
-        <Route path={`${PATH.PRACTICE}`} element={<PracticePage />} />
+        <Route path={`${PATH.PRACTICE}/:userId`} element={<PracticePage />} />
         <Route
           path={`${PATH.PRACTICEDETAIL}/:courseId/:wordId`}
           element={<PracticeDetailPage />}
@@ -53,8 +54,12 @@ function App() {
           path={`${PATH.PRACTICESUCCESS}`}
           element={<PracticeSuccessPage />}
         />
-        <Route path={`${PATH.CHATBOTSINGLY}`} element={<ChatbotSinglyPage />} />
-        <Route path={`${PATH.ACCOUNT}`} element={<AccountPage />} />
+        <Route path={`${PATH.CHATBOT}`} element={<ChatbotPage />} />
+        <Route
+          path={`${PATH.CHATBOT}/:chatbotId`}
+          element={<ChatbotDetailPage />}
+        />
+        <Route path={`${PATH.ACCOUNT}/:userId`} element={<AccountPage />} />
       </Routes>
     </Container>
   );

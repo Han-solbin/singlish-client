@@ -4,14 +4,14 @@ import styled from "styled-components";
 import { COLOR } from "../../constants";
 import { Subtitle2, Caption1 } from "../../atoms/text";
 
-const Advertisementmessage = ({ children1, children2 }) => {
+const Advertisementmessage = ({ title, body }) => {
   return (
     <Container>
       <Subtitle2 color={COLOR.WHITE} margin={0}>
-        {children1}
+        {title}
       </Subtitle2>
       <Caption1 color={COLOR.GRAY300} margin={0}>
-        {children2}
+        {body}
       </Caption1>
     </Container>
   );
