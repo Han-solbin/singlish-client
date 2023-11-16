@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from "react";
 import styled from "styled-components";
 import { useAxiosGet } from "../hooks/queries";
@@ -31,14 +32,15 @@ const ChatbotPage = () => {
   if (chatbots && chatbot)
     return (
       <Container>
-        <Chatbotheader
-          id={chatbot.id}
-          name={chatbot.name}
-          profile={chatbot.profile}
-          imgUrl={chatbot.imgUrl}
-        ></Chatbotheader>
+        <Chatbotheader></Chatbotheader>
         <RecommandedChatbotContainer>
-          <RecommandedChatbot></RecommandedChatbot>
+          <RecommandedChatbot
+            id={chatbot.id}
+            name={chatbot.name}
+            profile={chatbot.profile}
+            imgUrl={chatbot.imgUrl}
+            description={chatbot.description}
+          ></RecommandedChatbot>
         </RecommandedChatbotContainer>
         <Title2 margin={"1rem"} color={COLOR.WHITE}>
           모든 챗봇
@@ -78,5 +80,5 @@ const RecommandedChatbotContainer = styled.div`
 
 const Container = styled.div`
   width: 100%;
-  height: 150vh;
+  height: 132vh;
 `;

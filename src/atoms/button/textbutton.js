@@ -10,7 +10,7 @@ const Textbutton = ({
   width = "100%",
   height = "3.25rem",
   margin = "1rem 0 0.5rem 0",
-  isDisabled = false,
+  disabled,
   onClick,
 }) => {
   return (
@@ -19,10 +19,10 @@ const Textbutton = ({
       height={height}
       width={width}
       margin={margin}
-      disabled={isDisabled}
+      disabled={disabled}
       onClick={onClick}
     >
-      <Body1>{text}</Body1>
+      <Body1 color={disabled ? COLOR.GRAY500 : COLOR.GRAY900}>{text}</Body1>
     </Container>
   );
 };
@@ -35,7 +35,8 @@ const Container = styled.button`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   margin: ${(props) => props.margin};
-  background-color: ${(props) => props.backgroundColor};
+  background-color: ${(props) =>
+    props.disabled ? COLOR.GRAY700 : COLOR.BRANDCOLOR};
   border: none;
   border-radius: 1.25rem;
 `;

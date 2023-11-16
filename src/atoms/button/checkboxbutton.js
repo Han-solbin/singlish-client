@@ -4,16 +4,24 @@ import styled from "styled-components";
 import { COLOR } from "../../constants";
 import { Body2 } from "../../atoms/text";
 
-const Checkboxbutton = ({ setIsChecked, body }) => {
+const Checkboxbutton = ({ isChecked, setIsChecked, body }) => {
   return (
-    <label>
-      <Input onChange={setIsChecked} type="checkbox" />
-      <Body2 color={COLOR.WHITE}>{body}</Body2>
-    </label>
+    <Label>
+      <Input checked={isChecked} onChange={setIsChecked} type="checkbox" />
+      <Body2 color={COLOR.WHITE} margin={0}>
+        {body}
+      </Body2>
+    </Label>
   );
 };
 
 export default Checkboxbutton;
+
+const Label = styled.label`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
 
 const Input = styled.input`
   appearance: none;
@@ -24,6 +32,7 @@ const Input = styled.input`
   background-repeat: no-repeat;
   background-color: ${COLOR.GRAY700};
   border-radius: 8px;
+  margin: 0rem 0.5rem 0rem 0rem;
   width: 24px;
   height: 24px;
   &:checked {

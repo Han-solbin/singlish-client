@@ -4,19 +4,22 @@ import styled from "styled-components";
 import { COLOR } from "../../constants";
 import { Textbutton } from "../../atoms/button";
 
-const Bottomonebuttoncontainer = ({ content, onClick }) => {
+const Bottomonebuttoncontainer = ({ disabled, content, onClick }) => {
   return (
     <Container>
-      <Textbutton text={content} onClick={onClick}></Textbutton>
+      <Textbutton
+        disabled={disabled}
+        text={content}
+        onClick={onClick}
+      ></Textbutton>
     </Container>
   );
 };
-
 export default Bottomonebuttoncontainer;
 
 const Container = styled.div`
   position: fixed;
-  padding: 1rem 1rem 2.25rem;
+  padding: 0rem 1rem 2.25rem 1rem;
   display: flex;
   flex-direction: column;
   left: 0;

@@ -47,7 +47,7 @@ function App() {
         <Route path={`${PATH.SEARCH}/:keyword`} element={<SearchPage />} />
         <Route path={`${PATH.PRACTICE}/:userId`} element={<PracticePage />} />
         <Route
-          path={`${PATH.PRACTICEDETAIL}/:courseId/:wordId`}
+          path={`${PATH.PRACTICEDETAIL}/:wordId`}
           element={<PracticeDetailPage />}
         />
         <Route
@@ -56,7 +56,7 @@ function App() {
         />
         <Route path={`${PATH.CHATBOT}`} element={<ChatbotPage />} />
         <Route
-          path={`${PATH.CHATBOT}/:chatbotId`}
+          path={`${PATH.CHATBOTDETAIL}/:chatbotId`}
           element={<ChatbotDetailPage />}
         />
         <Route path={`${PATH.ACCOUNT}/:userId`} element={<AccountPage />} />

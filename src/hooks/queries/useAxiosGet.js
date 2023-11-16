@@ -17,7 +17,6 @@ const useAxiosGet = (url) => {
         setLoading(false);
       });
   }, []);
-  console.log(data);
   return { loading, data, error };
 };
 

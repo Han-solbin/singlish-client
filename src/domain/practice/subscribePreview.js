@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const SubscribePreview = ({ id, title, subtitle, activated, text, status }) => {
   const navigate = useNavigate();
   const handlePracticeDetailPage = () => {
-    navigate(PATH.PRACTICEDETAIL + "/" + id);
+    navigate(PATH.PRACTICEDETAIL + "/" + id * 6);
   };
   return (
     <Container activated={activated} onClick={handlePracticeDetailPage}>

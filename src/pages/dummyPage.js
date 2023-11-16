@@ -26,16 +26,60 @@ const PracticeDetailPage = () => {
     setPlay(false);
   };
 
-  const [isRecording, setIsRecording] = React.useState(false);
-  const [isDisabled, setIsDisabled] = React.useState(true);
+  /**
+ *   const soundStart = () => {
+    if (audioObject.current) {
+      setPlay(true);
+      audioObject.current.play();
+      console.log(audioObject.ended);
+    }
+  };
+  const soundEnd = () => {
+    setPlay(false);
+  };
+
+ * 
+ * 
+ * 
+ * 
+ *   const onSubmitAudioFile = useCallback(() => {
+    if (audioUrl) {
+      const audio = new Audio(URL.createObjectURL(audioUrl));
+      audio.play();
+    }
+    
+  }, [audioUrl]);
+ */
 
   const [stream, setStream] = useState();
   const [media, setMedia] = useState();
   const [onRec, setOnRec] = useState(true);
   const [source, setSource] = useState();
-  const [analyser, setAnalyser] = useState();
+  const [analysed, setAnalysed] = useState();
   const [audioUrl, setAudioUrl] = useState();
-  const chunks = []; // 오디오 청크 데이터를 저장할 배열
+
+  const navigate = useNavigate();
+  const [isDisabled, setIsDisabled] = React.useState(true);
+  const [isRecording, setIsRecording] = React.useState(false);
+  const [voice, setVoice] = React.useState("⋯");
+
+  /* 사용 중지된 코드
+  const recordStart = () => {
+    setIsRecording(true);
+    console.log(isRecording);
+    
+    const { loading: loading, data: result, error: error } = useAxiosGet({
+      url: `https://speech.googleapis.com/v1p1beta1/speech:recognize`,
+    });
+    
+    while (!voice) {
+      console.log("prosessing...");
+    }
+    //setVoice(result);
+    setIsDisabled(false);
+    setIsRecording(false);
+  };
+*/
 
   const recordStart = () => {
     setIsRecording(true);
@@ -43,84 +87,73 @@ const PracticeDetailPage = () => {
     const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
     // 자바스크립트를 통해 음원의 진행상태에 직접접근에 사용된다.
-    const analyser = audioCtx.createScriptProcessor(0, 1, 1);
-    setAnalyser(analyser);
-
-    function makeSound(stream) {
-      // 내 컴퓨터의 마이크나 다른 소스를 통해 발생한 오디오 스트림의 정보를 보여준다.
-      const source = audioCtx.createMediaStreamSource(stream);
-      setSource(source);
-
-      // AudioBufferSourceNode 연결
-      source.connect(analyser);
-      analyser.connect(audioCtx.destination);
-    }
+    const analyser = audioCtx.createAnalyser();
+    setAnalysed(analyser);
 
     // 마이크 사용 권한 획득 후 녹음 시작
-    navigator.mediaDevices
-      .getUserMedia({ audio: true })
-      .then((stream) => {
-        const mediaRecorder = new MediaRecorder(stream);
+    navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
+      const mediaRecorder = new MediaRecorder(stream);
+      console.log(mediaRecorder);
+      mediaRecorder.start();
+      setStream(stream);
 
-        // dataavailable 이벤트 핸들러 등록
-        mediaRecorder.addEventListener("dataavailable", (e) => {
-          chunks.push(e.data); // 청크 데이터를 배열에 추가
-        });
-
-        mediaRecorder.start();
-        setStream(stream);
-        setMedia(mediaRecorder);
-        makeSound(stream);
-        // 음성 녹음이 시작됐을 때 onRec state값을 false로 변경
-        analyser.onaudioprocess = function(e) {
-          setOnRec(false);
-        };
-      })
-      .catch((error) => {
-        // 마이크 사용 권한을 받지 못했을 때 처리
-        alert("마이크 사용 권한을 허용해야 녹음을 진행할 수 있습니다.");
-      });
+      setMedia(mediaRecorder);
+      const source = audioCtx.createMediaStreamSource(stream);
+      setSource(source);
+      source.connect(analyser);
+      analyser.connect(audioCtx.destination);
+      // 음성 녹음이 시작됐을 때 onRec state값을 false로 변경
+      analyser.onaudioprocess = function(e) {
+        setOnRec(false);
+      };
+    });
   };
 
   const recordEnd = () => {
     // dataavailable 이벤트로 Blob 데이터에 대한 응답을 받을 수 있음
     media.ondataavailable = function(e) {
-      chunks.push(e.data);
       setAudioUrl(e.data);
+      const audioBlob = e.data;
       setOnRec(true);
+      console.log(audioUrl);
+      const formData = new FormData();
+      formData.append("audio", audioBlob, "recorded_audio.wav");
+      console.log(audioBlob);
+      console.log(formData);
     };
-
     // 모든 트랙에서 stop()을 호출해 오디오 스트림을 정지
     stream.getAudioTracks().forEach(function(track) {
       track.stop();
     });
-
     // 미디어 캡처 중지
     media.stop();
-
     // 메서드가 호출 된 노드 연결 해제
-    analyser.disconnect();
+    analysed.disconnect();
     source.disconnect();
-    setIsRecording(false);
+    console.log(audioUrl);
+    /*
+    const { loading: loading, data: result, error: error } = useAxiosGet(
+      `https://speech.googleapis.com/v1p1beta1/speech:recognize`
+    );
+    setVoice(result);
+    */
     setIsDisabled(false);
+    setIsRecording(false);
+    console.log(audioUrl);
   };
 
   const onSubmitAudioFile = useCallback(() => {
     if (audioUrl) {
-      const audio = new Audio(URL.createObjectURL(audioUrl));
-      audio.play();
-      const sound = new File([audioUrl], "soundBlob", {
-        lastModified: new Date().getTime(),
-        type: "audio",
-      });
-      console.log(sound);
-      console.log(audio);
+      console.log(URL.createObjectURL(audioUrl)); // 출력된 링크에서 녹음된 오디오 확인 가능
     }
+    // File 생성자를 사용해 파일로 변환
+    const sound = new File([audioUrl], "soundBlob", {
+      lastModified: new Date().getTime(),
+      type: "audio",
+    });
+    console.log(sound); // File 정보 출력
   }, [audioUrl]);
 
-  const [voice, setVoice] = React.useState("");
-
-  const navigate = useNavigate();
   const { wordId } = useParams();
   const { loading: loading_1, data: word, error: error_1 } = useAxiosGet(
     `http://localhost:8081/api/v1/words/${wordId}`
@@ -195,23 +228,21 @@ const PracticeDetailPage = () => {
           <Specialtitle1 margin={0} color={COLOR.WHITE}>
             {voice}
           </Specialtitle1>
-          <TwoButtonContainer>
-            <RecordButton
-              onClick={isRecording ? recordEnd : recordStart}
-              isRecording={isRecording}
-            >
-              <Microphoneicon
-                size={"44px"}
-                color={isRecording ? COLOR.GRAY900 : COLOR.BRANDCOLOR}
-              ></Microphoneicon>
-            </RecordButton>
-            <PlayButton onClick={onSubmitAudioFile} play={isRecording}>
-              <Soundwaveicon
-                size={"48px"}
-                color={isRecording ? COLOR.GRAY900 : COLOR.BRANDCOLOR}
-              ></Soundwaveicon>
-            </PlayButton>
-          </TwoButtonContainer>
+          <RecordButton
+            onClick={isRecording ? recordEnd : recordStart}
+            isRecording={isRecording}
+          >
+            <Microphoneicon
+              size={"44px"}
+              color={isRecording ? COLOR.GRAY900 : COLOR.BRANDCOLOR}
+            ></Microphoneicon>
+          </RecordButton>
+          <RecordButton onClick={onSubmitAudioFile} isRecording={isRecording}>
+            <Microphoneicon
+              size={"44px"}
+              color={isRecording ? COLOR.GRAY900 : COLOR.BRANDCOLOR}
+            ></Microphoneicon>
+          </RecordButton>
         </DiacriticContainer>
         <Bottomonebuttoncontainer
           disabled={isDisabled}
@@ -222,11 +253,6 @@ const PracticeDetailPage = () => {
     );
 };
 export default PracticeDetailPage;
-
-const TwoButtonContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
 
 const PlayButton = styled.button`
   display: flex;
@@ -244,7 +270,6 @@ const RecordButton = styled.button`
   background-color: ${(props) =>
     props.isRecording ? COLOR.BRANDCOLOR : COLOR.GRAY900};
   padding: 0.375rem 1.125rem;
-  margin: 0rem 1rem 0rem 0rem;
   border-radius: 1.25rem;
   border: none;
 `;

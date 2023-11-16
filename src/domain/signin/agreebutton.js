@@ -7,7 +7,7 @@ const Agreebutton = ({ isChecked, setIsChecked, body }) => {
     <Container>
       <Checkboxbutton
         isChecked={isChecked}
-        onClick={setIsChecked}
+        setIsChecked={setIsChecked}
         body={body}
       ></Checkboxbutton>
     </Container>
@@ -20,7 +20,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: left;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   margin: ${(props) => props.margin};

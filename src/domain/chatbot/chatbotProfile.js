@@ -1,23 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { PATH, COLOR } from "../../constants";
+import { COLOR } from "../../constants";
 import { Title2, Body2 } from "../../atoms/text";
-import { useNavigate } from "react-router-dom";
 
-const RecommandedChatbot = ({ id, name, profile, imgUrl, description }) => {
-  const navigate = useNavigate();
-  const handleChatbotDetailPage = () => {
-    navigate(PATH.CHATBOTDETAIL + "/" + id);
-  };
+const ChatbotProfile = ({ id, name, profile, imgUrl, description }) => {
   return (
-    <Container onClick={handleChatbotDetailPage}>
+    <Container>
       <RowContainer>
         <ColumnContainer>
-          <Tag>
-            <Body2 color={COLOR.GRAY300} margin={"0"}>
-              {"오늘의 추천"}
-            </Body2>
-          </Tag>
           <Title2 color={COLOR.WHITE} margin={"0"}>
             {name}
           </Title2>
@@ -33,21 +23,12 @@ const RecommandedChatbot = ({ id, name, profile, imgUrl, description }) => {
     </Container>
   );
 };
-export default RecommandedChatbot;
-
-const Tag = styled.span`
-  background-color: ${COLOR.GRAY900};
-  height: auto;
-  width: auto;
-  padding: 0.25rem 0.75rem;
-  border-radius: 0.75rem;
-  margin: auto auto 0.5rem 0rem;
-`;
+export default ChatbotProfile;
 
 const ImgContainer = styled.img`
   display: flex;
-  width: 72px;
-  height: 72px;
+  width: 40px;
+  height: 40px;
   flex-direction: column;
   aligh-items: left;
   justify-content: flex-start;
@@ -71,14 +52,40 @@ const RowContainer = styled.div`
   align-items: center;
 `;
 
-const Container = styled.button`
-  display: ${(props) => (props.activated == true ? "none" : "flex")};
+const Container = styled.div`
+  width: 280px;
+  position: relative;
+  padding: 0.5rem 0.25rem 0.5rem 1rem;
   border: none;
   height: auto;
-  width: 100%;
   flex-direction: column;
   text-align: left;
+  margin: 0rem 0rem 1rem 0rem;
   padding: 0.75rem 1rem 0.75rem 1rem;
   background-color: #454a55;
   border-radius: 1.25rem;
+  ::before {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 10px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent transparent ${COLOR.GRAY700};
+  }
+  &.right {
+    align-self: flex-end;
+    background-color: ${COLOR.GRAY700};
+
+    ::before {
+      right: 10px;
+      border-color: transparent ${COLOR.GRAY700} transparent transparent;
+    }
+  }
+
+  &.no-tail {
+    ::before {
+      display: visible;
+    }
+  }
 `;

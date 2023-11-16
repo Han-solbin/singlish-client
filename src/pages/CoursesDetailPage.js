@@ -39,7 +39,16 @@ const CoursesDetailPage = () => {
   if (error_2) {
     console.log("error!");
   }
-  if (courseDetail && words)
+  const { loading: loading_3, data: subscribes, error: error_3 } = useAxiosGet(
+    `http://localhost:8081/api/v1/users/0/courses`
+  );
+  if (loading_3) {
+    console.log("loading...");
+  }
+  if (error_3) {
+    console.log("error!");
+  }
+  if (courseDetail && words && subscribes)
     return (
       <>
         <Navigationheader>클래스 소개</Navigationheader>

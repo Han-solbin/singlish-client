@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 import { Navigationheader } from "../molecules/navigation";
 import { Speechbubble } from "../atoms";
+import { ChatbotProfile } from "../domain/chatbot";
 
 const ChatbotDetailPage = () => {
   const { chatbotId } = useParams();
@@ -21,10 +22,16 @@ const ChatbotDetailPage = () => {
     return (
       <Container>
         <Navigationheader>{chatbot.name}</Navigationheader>
-
         <BubbleContainer>
+          <ChatbotProfile
+            id={chatbot.id}
+            name={chatbot.name}
+            profile={chatbot.profile}
+            imgUrl={chatbot.imgUrl}
+            description={chatbot.description}
+          ></ChatbotProfile>
           <Speechbubble
-            message={chatbot.first_description}
+            message={chatbot.scene_description}
             isMe={false}
           ></Speechbubble>
         </BubbleContainer>
